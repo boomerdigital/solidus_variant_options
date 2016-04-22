@@ -1,4 +1,68 @@
-/*
-Placeholder manifest file.
-the installer will append this file to the app vendored assets here: 'vendor/assets/stylesheets/spree/frontend/all.css'
-*/
+#product-details .price.unselected {
+  color: #bbb;
+}
+.variant-option-type {
+  margin-bottom: 0;
+}
+#product-variants ul.variant-option-values {
+  list-style-type: none;
+  margin-bottom: 1em;
+}
+.variant-option-values li {
+  display: block;
+  position: relative;
+  float: left;
+}
+.variant-option-values li a {
+  display: block;
+  background-color: #f9f9f9;
+  border: 2px solid #eee;
+  padding: 2px 9px;
+  margin: 3px 3px 0 0;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+.variant-option-values li.clear {
+  border: 0;
+  float: none;
+  clear: both;
+}
+li.clear-option a.clear-button {
+  display: none;
+  font-weight: bold;
+  background-color: #fff;
+  border-color: #FDE2E2;
+  color: #c00e0e;
+}
+li.clear-option a.clear-button:hover {
+  border-color: #c00e0e;
+  background-color: #EF2E2E;
+  color: #fff;
+}
+.option-value.selected,
+.option-value.in-stock:hover {
+  background-color: #1491EB;
+  border-color: #1072B9;
+  color: #fff;
+}
+.option-value.out-of-stock {
+  display: block;
+  color: #aaa;
+  cursor: default;
+}
+.option-value.locked,
+.option-value.locked:hover {
+  background-color: #fff;
+  border-color: #f0f0f0;
+  color: #ddd;
+  cursor: default;
+}
+.option-value.locked img {
+  filter:alpha(opacity=50);
+  -moz-opacity:0.5;
+  -khtml-opacity: 0.5;
+  opacity: 0.5;
+}

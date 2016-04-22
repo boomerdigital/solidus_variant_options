@@ -16,6 +16,9 @@ ENV['RAILS_ENV'] = 'test'
 require File.expand_path('../dummy/config/environment.rb',  __FILE__)
 
 require 'rspec/rails'
+require 'capybara/rspec'
+require 'capybara/rails'
+require 'capybara/poltergeist'
 require 'database_cleaner'
 require 'ffaker'
 
@@ -29,9 +32,14 @@ require 'spree/testing_support/capybara_ext'
 require 'spree/testing_support/controller_requests'
 require 'spree/testing_support/factories'
 require 'spree/testing_support/url_helpers'
+require 'factories/product_with_variants'
 
-# Requires factories defined in lib/solidus_variant_options/factories.rb
-require 'solidus_variant_options/factories'
+
+# Capybara.register_driver :poltergeist do |app|
+#   Capybara::Poltergeist::Driver.new(app, js_errors: false)
+# end
+
+# Capybara.default_driver = :poltergeist
 
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
@@ -63,6 +71,9 @@ RSpec.configure do |config|
   # Capybara javascript drivers require transactional fixtures set to false, and we use DatabaseCleaner
   # to cleanup after each test instead.  Without transactional fixtures set to false the records created
   # to setup a test will be unavailable to the browser, which runs under a separate server instance.
+  config.infer_spec_type_from_file_location!
+  config.filter_run focus: true
+  config.run_all_when_everything_filtered = true
   config.use_transactional_fixtures = false
 
   # Ensure Suite is set to use transactions for speed.
@@ -84,4 +95,5 @@ RSpec.configure do |config|
 
   config.fail_fast = ENV['FAIL_FAST'] || false
   config.order = "random"
+  Capybara.javascript_driver = :poltergeist
 end
