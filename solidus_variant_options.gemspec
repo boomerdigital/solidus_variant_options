@@ -2,7 +2,7 @@
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'solidus_variant_options'
-  s.version     = '0.0.1'
+  s.version     = '0.0.2'
   s.summary     = 'Solidus Variant Options is a simple solidus extension that replaces the radio-button variant selection with groups of option types and values.'
   s.description = 'Solidus Variant Options is a simple solidus extension that replaces the radio-button variant selection with groups of option types and values. Please see the documentation for more details.'
   s.required_ruby_version = '>= 2.1'
