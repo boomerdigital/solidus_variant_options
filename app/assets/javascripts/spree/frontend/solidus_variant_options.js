@@ -210,6 +210,8 @@ function VariantOptions(params) {
 
   function handle_click(evt) {
     evt.preventDefault();
+    var last_size = $(".option-value.selected.size")
+    var last_color = $(".option-value.selected.color")
     variant = null;
     selection = [];
     var el = $(this);
@@ -223,6 +225,26 @@ function VariantOptions(params) {
     if (find_variant()) {
       toggle();
     }
+
+    if(hasColors() && colorChanged(last_color)){
+      if(last_size.hasClass("out-of-stock")){
+        $(".size.in-stock").first().click()
+      } else{
+        last_size.click()
+      }
+    }
+
+    if(el.hasClass('color')) {
+      $('#current-color').text(el.attr('title'))
+    }
+  }
+
+  function hasColors() {
+    return $(".variant-options .color").length != 0;
+  }
+
+  function colorChanged(last_color) {
+    return last_color.attr("rel") != $(".option-value.selected.color").attr("rel");
   }
 
   init();
